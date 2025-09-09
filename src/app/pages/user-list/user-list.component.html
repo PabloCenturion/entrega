@@ -1,0 +1,32 @@
+<div class="container">
+  <h2>Lista de Usuários</h2>
+
+  <button class="btn btn-success mb-3" routerLink="/usuarios/novo">Novo Usuário</button>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>E-mail</th>
+        <th>CPF</th>
+        <th>Data Nascimento</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let usuario of usuarios">
+        <td>{{ usuario.id }}</td>
+        <td>{{ usuario.nome }}</td>
+        <td>{{ usuario.email }}</td>
+        <td>{{ usuario.cpf }}</td>
+        <td>{{ usuario.dataNascimento | date:'dd/MM/yyyy' }}</td>
+        <td>
+          <button class="btn btn-primary btn-sm me-1" (click)="editarUsuario(usuario.id)">Editar</button>
+          <button class="btn btn-info btn-sm me-1" (click)="detalharUsuario(usuario.id)">Detalhes</button>
+          <button class="btn btn-danger btn-sm" (click)="excluirUsuario(usuario.id)">Excluir</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
